@@ -332,7 +332,7 @@ public class Registro extends JFrame {
 
     private void btnVolverLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverLoginActionPerformed
         // Obtener la instancia de la ventana de inicio de sesión
-        Interfaz loginWindow = Interfaz.getInstancia();
+        Login loginWindow = Login.getInstancia();
         // Hacer visible la ventana de inicio de sesión
         loginWindow.setVisible(true);
         // Cerrar la ventana actual (la ventana de registro)
@@ -415,7 +415,7 @@ public class Registro extends JFrame {
 
                         JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente");
                         LimpiarCampos();
-                        new Interfaz().setVisible(true); // Mostrar la ventana de inicio de sesión
+                        new Login().setVisible(true); // Mostrar la ventana de inicio de sesión
                         dispose(); // Cerrar la ventana actual (de registro)
                     }
                 } else {

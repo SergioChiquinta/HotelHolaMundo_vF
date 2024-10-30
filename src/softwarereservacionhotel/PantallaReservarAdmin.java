@@ -238,7 +238,7 @@ public class PantallaReservarAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReservarActionPerformed
 
     private void CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionActionPerformed
-        Interfaz loginWindow = Interfaz.getInstancia();
+        Login loginWindow = Login.getInstancia();
         loginWindow.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CerrarSesionActionPerformed

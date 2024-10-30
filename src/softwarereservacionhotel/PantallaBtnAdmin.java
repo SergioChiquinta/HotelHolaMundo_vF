@@ -6,8 +6,6 @@ import java.awt.Image;
 import java.sql.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class PantallaBtnAdmin extends javax.swing.JFrame {
 
@@ -424,7 +422,7 @@ public class PantallaBtnAdmin extends javax.swing.JFrame {
 
     private void CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionActionPerformed
         // Obtener una instancia de la ventana de inicio de sesión (Interfaz) y mostrarla
-        Interfaz loginWindow = Interfaz.getInstancia();
+        Login loginWindow = Login.getInstancia();
         loginWindow.setVisible(true);
         // Cerrar la ventana actual
         this.dispose();

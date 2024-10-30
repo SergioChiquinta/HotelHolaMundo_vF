@@ -5,7 +5,7 @@ public class SoftwareReservacionHotel {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        new Interfaz().setVisible(true);
+        new Login().setVisible(true);
     }
     
 }

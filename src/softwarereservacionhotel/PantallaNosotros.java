@@ -133,7 +133,7 @@ public class PantallaNosotros extends javax.swing.JFrame {
 
     private void CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionActionPerformed
         // Obtener una instancia de la ventana de inicio de sesión (Interfaz) y mostrarla
-        Interfaz loginWindow = Interfaz.getInstancia();
+        Login loginWindow = Login.getInstancia();
         loginWindow.setVisible(true);
         // Cerrar la ventana actual
         this.dispose();
