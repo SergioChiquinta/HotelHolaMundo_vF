@@ -201,7 +201,9 @@ public class Registro extends JFrame {
         btnRegistrarse.setForeground(new java.awt.Color(23, 34, 77));
         btnRegistrarse.setText("REGISTRARSE");
         btnRegistrarse.setBorder(null);
+        btnRegistrarse.setContentAreaFilled(false);
         btnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrarse.setFocusPainted(false);
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarseActionPerformed(evt);
@@ -222,7 +224,9 @@ public class Registro extends JFrame {
         btnVolverLogin.setForeground(new java.awt.Color(23, 34, 77));
         btnVolverLogin.setText("Volver al Login");
         btnVolverLogin.setBorder(null);
+        btnVolverLogin.setContentAreaFilled(false);
         btnVolverLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVolverLogin.setFocusPainted(false);
         btnVolverLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverLoginActionPerformed(evt);

@@ -1,6 +1,7 @@
 
 package softwarereservacionhotel;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.*;
@@ -8,83 +9,141 @@ import javax.swing.*;
 public class PantallaNosotros extends javax.swing.JFrame {
 
     FondoNosotros FondoNosotros = new PantallaNosotros.FondoNosotros();
+    private static PantallaNosotros instancia;
     
     public PantallaNosotros() {
         this.setContentPane(FondoNosotros);
         initComponents();
-        this.setResizable(false);  // Agrega esta línea para deshabilitar el redimensionamiento
+        instancia = this;
+        setIconImage(new ImageIcon(getClass().getResource("/img_news/Logo_Hotel.png")).getImage());
+        setTitle("Hotel Hola Mundo - Launcher");
+        this.setResizable(true);  // Línea para deshabilitar el redimensionamiento
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); // Maximizar ventana al iniciar
+        this.setMinimumSize(new Dimension(1280, 800)); // Tamaño mínimo de la ventana
+    }
+    
+    public static PantallaNosotros getInstancia() {
+        if (instancia == null) {
+            instancia = new PantallaNosotros();
+        }
+        return instancia;
+    }
+
+    @Override
+    public void dispose() {
+        instancia = null;
+        super.dispose();
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new FondoNosotros();
         btnHabitaciones = new javax.swing.JButton();
         btnReserva = new javax.swing.JButton();
         btnNosotros = new javax.swing.JButton();
         CerrarSesion = new javax.swing.JButton();
+        btnAdminSinUso = new javax.swing.JButton();
+        jLabelFondoGuíaNosotros = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnHabitaciones.setText("Habitaciones");
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        btnHabitaciones.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnHabitaciones.setContentAreaFilled(false);
+        btnHabitaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHabitaciones.setFocusPainted(false);
         btnHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHabitacionesActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 186;
+        gridBagConstraints.ipady = 56;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(60, 151, 0, 0);
+        jPanel1.add(btnHabitaciones, gridBagConstraints);
 
-        btnReserva.setText("Reserva");
+        btnReserva.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnReserva.setContentAreaFilled(false);
+        btnReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReserva.setFocusPainted(false);
         btnReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReservaActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 128;
+        gridBagConstraints.ipady = 56;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(60, 47, 0, 0);
+        jPanel1.add(btnReserva, gridBagConstraints);
 
-        btnNosotros.setText("Nosotros");
+        btnNosotros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnNosotros.setContentAreaFilled(false);
+        btnNosotros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNosotros.setFocusPainted(false);
         btnNosotros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNosotrosActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 150;
+        gridBagConstraints.ipady = 58;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(58, 42, 0, 0);
+        jPanel1.add(btnNosotros, gridBagConstraints);
 
-        CerrarSesion.setText("Cerrar Sesion");
+        CerrarSesion.setBorder(null);
+        CerrarSesion.setBorderPainted(false);
+        CerrarSesion.setContentAreaFilled(false);
         CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CerrarSesionActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 160;
+        gridBagConstraints.ipady = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(96, 182, 0, 0);
+        jPanel1.add(CerrarSesion, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(CerrarSesion)
-                .addGap(190, 190, 190)
-                .addComponent(btnHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnNosotros, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNosotros, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(CerrarSesion)))
-                .addContainerGap(612, Short.MAX_VALUE))
-        );
+        btnAdminSinUso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnAdminSinUso.setContentAreaFilled(false);
+        btnAdminSinUso.setFocusPainted(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 106;
+        gridBagConstraints.ipady = 58;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(58, 48, 0, 0);
+        jPanel1.add(btnAdminSinUso, gridBagConstraints);
+
+        jLabelFondoGuíaNosotros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_news/Nuevo_FondoPantallaNosotros.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel1.add(jLabelFondoGuíaNosotros, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,12 +160,14 @@ public class PantallaNosotros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabitacionesActionPerformed
-        // Crear una instancia de PantallaHabitaciones
-        PantallaHabitaciones ph = new PantallaHabitaciones();
-        // Hacer visible la pantalla de habitaciones
-        ph.setVisible(true);
-        // Cerrar la ventana actual desde la que se hizo clic en el botón
-        dispose();
+        // Obtener la instancia de PantallaHabitaciones
+        PantallaHabitaciones ph = PantallaHabitaciones.getInstancia();
+        if (!ph.isVisible()) {
+            ph.setVisible(true);
+        } else {
+            ph.toFront(); // Llevar la ventana existente al frente
+        }
+        dispose(); // Cerrar la ventana actual
     }//GEN-LAST:event_btnHabitacionesActionPerformed
 
     private void btnReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaActionPerformed
@@ -116,11 +177,19 @@ public class PantallaNosotros extends javax.swing.JFrame {
 
         // Realizar la comparación del tipo de usuario
         if ("Cliente".equalsIgnoreCase(tipoUsuario)) {
-            PantallaReservarCliente prCliente = new PantallaReservarCliente();
-            prCliente.setVisible(true);
+            PantallaReservarCliente prCliente = PantallaReservarCliente.getInstancia();
+            if (!prCliente.isVisible()) {
+                prCliente.setVisible(true);
+            } else {
+                prCliente.toFront(); // Llevar la ventana existente al frente
+            }
         } else if ("Administrador".equalsIgnoreCase(tipoUsuario)) {
-            PantallaReservarAdmin prAdmin = new PantallaReservarAdmin();
-            prAdmin.setVisible(true);
+            PantallaReservarAdmin prAdmin = PantallaReservarAdmin.getInstancia();
+            if (!prAdmin.isVisible()) {
+                prAdmin.setVisible(true);
+            } else {
+                prAdmin.toFront(); // Llevar la ventana existente al frente
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Tipo de usuario no reconocido");
         }
@@ -173,31 +242,23 @@ public class PantallaNosotros extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CerrarSesion;
+    private javax.swing.JButton btnAdminSinUso;
     private javax.swing.JButton btnHabitaciones;
     private javax.swing.JButton btnNosotros;
     private javax.swing.JButton btnReserva;
+    private javax.swing.JLabel jLabelFondoGuíaNosotros;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     class FondoNosotros extends JPanel {
-    
         private Image imagen;
-        
+
         @Override
-        public void paint(Graphics g){
-            // Cargar la imagen desde el recurso
-            imagen = new ImageIcon(getClass().getResource("/img/PantallaNosotros.png")).getImage();
-        
-            // Dibujar la imagen en el panel
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            imagen = new ImageIcon(getClass().getResource("/img_news/Nuevo_Fondo2.png")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-            
-            // Hacer el panel transparente para mostrar la imagen de fondo
-            setOpaque(false);
-            
-            super.paint(g); // Llamar al método paint de JPanel para asegurar que se pinten los componentes hijos
-            
         }
-    
     }
 
 }

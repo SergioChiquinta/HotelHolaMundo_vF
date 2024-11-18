@@ -1,10 +1,14 @@
 package softwarereservacionhotel;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import javax.swing.*;
 
 public class PantallaHabitaciones extends javax.swing.JFrame {
 
+    private static PantallaHabitaciones instancia;
     // Declaración de instancias de las habitaciones
     Habitaciones1 hab1 = new Habitaciones1();
     Habitaciones2 hab2 = new Habitaciones2();
@@ -21,16 +25,34 @@ public class PantallaHabitaciones extends javax.swing.JFrame {
 
     public PantallaHabitaciones() {
         initComponents(); // Inicialización de componentes Swing
-        this.setResizable(false); // Deshabilitar redimensionamiento de la ventana
-
+        instancia = this;
         MostrarPanel(hab1); // Mostrar inicialmente la habitación hab1 al abrir la ventana
+        setIconImage(new ImageIcon(getClass().getResource("/img_news/Logo_Hotel.png")).getImage());
+        setTitle("Hotel Hola Mundo - Launcher");
+        this.setResizable(true);  // Línea para deshabilitar el redimensionamiento
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); // Maximizar ventana al iniciar
+        this.setMinimumSize(new Dimension(1280, 800)); // Tamaño mínimo de la ventana
     }
 
+    public static PantallaHabitaciones getInstancia() {
+        if (instancia == null) {
+            instancia = new PantallaHabitaciones();
+        }
+        return instancia;
+    }
+
+    @Override
+    public void dispose() {
+        instancia = null;
+        super.dispose();
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new FondoHabitaciones();
         content = new javax.swing.JPanel();
         btnHabitaciones = new javax.swing.JButton();
         btnReserva = new javax.swing.JButton();
@@ -38,11 +60,12 @@ public class PantallaHabitaciones extends javax.swing.JFrame {
         IzquierdaBtn = new javax.swing.JButton();
         DerechaBtn = new javax.swing.JButton();
         CerrarSesion = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        btnAdminSinUso = new javax.swing.JButton();
+        jLabelFondoGuíaHabitaciones = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
@@ -55,70 +78,162 @@ public class PantallaHabitaciones extends javax.swing.JFrame {
             .addGap(0, 610, Short.MAX_VALUE)
         );
 
-        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 1100, 610));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 1100;
+        gridBagConstraints.ipady = 610;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(28, 0, 0, 0);
+        jPanel1.add(content, gridBagConstraints);
 
-        btnHabitaciones.setText("Habitaciones");
+        btnHabitaciones.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnHabitaciones.setContentAreaFilled(false);
+        btnHabitaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHabitaciones.setFocusPainted(false);
         btnHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHabitacionesActionPerformed(evt);
             }
         });
-        jPanel1.add(btnHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 35, 250, 50));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 188;
+        gridBagConstraints.ipady = 58;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(58, 148, 0, 0);
+        jPanel1.add(btnHabitaciones, gridBagConstraints);
 
-        btnReserva.setText("Reserva");
+        btnReserva.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnReserva.setContentAreaFilled(false);
+        btnReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReserva.setFocusable(false);
         btnReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReservaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, 180, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 128;
+        gridBagConstraints.ipady = 58;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(58, 50, 0, 0);
+        jPanel1.add(btnReserva, gridBagConstraints);
 
-        btnNosotros.setText("Nosotros");
+        btnNosotros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnNosotros.setContentAreaFilled(false);
+        btnNosotros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNosotros.setFocusPainted(false);
         btnNosotros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNosotrosActionPerformed(evt);
             }
         });
-        jPanel1.add(btnNosotros, new org.netbeans.lib.awtextra.AbsoluteConstraints(937, 30, 280, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 148;
+        gridBagConstraints.ipady = 58;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(58, 40, 0, 0);
+        jPanel1.add(btnNosotros, gridBagConstraints);
 
-        IzquierdaBtn.setText("IZQ");
+        IzquierdaBtn.setBorder(null);
+        IzquierdaBtn.setBorderPainted(false);
+        IzquierdaBtn.setContentAreaFilled(false);
         IzquierdaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IzquierdaBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(IzquierdaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 70, 230));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 60;
+        gridBagConstraints.ipady = 80;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(293, 30, 0, 0);
+        jPanel1.add(IzquierdaBtn, gridBagConstraints);
 
-        DerechaBtn.setText("DER");
+        DerechaBtn.setBorder(null);
+        DerechaBtn.setBorderPainted(false);
+        DerechaBtn.setContentAreaFilled(false);
         DerechaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DerechaBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(DerechaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 280, 70, 230));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.ipadx = 60;
+        gridBagConstraints.ipady = 80;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(293, 0, 0, 0);
+        jPanel1.add(DerechaBtn, gridBagConstraints);
 
-        CerrarSesion.setText("Cerrar Sesion");
+        CerrarSesion.setBorder(null);
+        CerrarSesion.setBorderPainted(false);
+        CerrarSesion.setContentAreaFilled(false);
+        CerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CerrarSesion.setFocusPainted(false);
         CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CerrarSesionActionPerformed(evt);
             }
         });
-        jPanel1.add(CerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 160;
+        gridBagConstraints.ipady = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(97, 92, 0, 0);
+        jPanel1.add(CerrarSesion, gridBagConstraints);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PantallaHabitaciones.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        btnAdminSinUso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnAdminSinUso.setContentAreaFilled(false);
+        btnAdminSinUso.setFocusPainted(false);
+        btnAdminSinUso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminSinUsoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.ipadx = 108;
+        gridBagConstraints.ipady = 58;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(58, 50, 0, 0);
+        jPanel1.add(btnAdminSinUso, gridBagConstraints);
+
+        jLabelFondoGuíaHabitaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_news/Nuevo_FondoPantallaHabitaciones.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 18;
+        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel1.add(jLabelFondoGuíaHabitaciones, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -135,11 +250,19 @@ public class PantallaHabitaciones extends javax.swing.JFrame {
 
         // Realizar la comparación del tipo de usuario
         if ("Cliente".equalsIgnoreCase(tipoUsuario)) {
-            PantallaReservarCliente prCliente = new PantallaReservarCliente();
-            prCliente.setVisible(true);
+            PantallaReservarCliente prCliente = PantallaReservarCliente.getInstancia();
+            if (!prCliente.isVisible()) {
+                prCliente.setVisible(true);
+            } else {
+                prCliente.toFront(); // Llevar la ventana existente al frente
+            }
         } else if ("Administrador".equalsIgnoreCase(tipoUsuario)) {
-            PantallaReservarAdmin prAdmin = new PantallaReservarAdmin();
-            prAdmin.setVisible(true);
+            PantallaReservarAdmin prAdmin = PantallaReservarAdmin.getInstancia();
+            if (!prAdmin.isVisible()) {
+                prAdmin.setVisible(true);
+            } else {
+                prAdmin.toFront(); // Llevar la ventana existente al frente
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Tipo de usuario no reconocido");
         }
@@ -147,11 +270,14 @@ public class PantallaHabitaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReservaActionPerformed
 
     private void btnNosotrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNosotrosActionPerformed
-        // Crear una instancia de PantallaNosotros y mostrarla
-        PantallaNosotros pn = new PantallaNosotros();
-        pn.setVisible(true);
-        // Cerrar la ventana actual
-        dispose();
+        // Obtener la instancia de PantallaNosotros
+        PantallaNosotros pn = PantallaNosotros.getInstancia();
+        if (!pn.isVisible()) {
+            pn.setVisible(true);
+        } else {
+            pn.toFront(); // Llevar la ventana existente al frente
+        }
+        dispose(); // Cerrar la ventana actual
     }//GEN-LAST:event_btnNosotrosActionPerformed
 
     private void IzquierdaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IzquierdaBtnActionPerformed
@@ -179,6 +305,10 @@ public class PantallaHabitaciones extends javax.swing.JFrame {
         // Cerrar la ventana actual
         this.dispose();
     }//GEN-LAST:event_CerrarSesionActionPerformed
+
+    private void btnAdminSinUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminSinUsoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdminSinUsoActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -217,11 +347,12 @@ public class PantallaHabitaciones extends javax.swing.JFrame {
     private javax.swing.JButton CerrarSesion;
     private javax.swing.JButton DerechaBtn;
     private javax.swing.JButton IzquierdaBtn;
+    private javax.swing.JButton btnAdminSinUso;
     private javax.swing.JButton btnHabitaciones;
     private javax.swing.JButton btnNosotros;
     private javax.swing.JButton btnReserva;
     private javax.swing.JPanel content;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelFondoGuíaHabitaciones;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
@@ -280,6 +411,17 @@ public class PantallaHabitaciones extends javax.swing.JFrame {
             default:
                 MostrarPanel(hab1); // Mostrar el panel hab1 por defecto si el índice no está en el rango esperado
                 IndiceHab = 1; // Reiniciar el índice a 1 si no se cumplen las condiciones anteriores
+        }
+    }
+    
+    class FondoHabitaciones extends JPanel {
+        private Image imagen;
+
+        @Override
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            imagen = new ImageIcon(getClass().getResource("/img_news/Nuevo_Fondo2.png")).getImage();
+            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
         }
     }
 

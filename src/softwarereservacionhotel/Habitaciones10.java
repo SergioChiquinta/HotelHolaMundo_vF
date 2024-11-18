@@ -25,43 +25,64 @@ public class Habitaciones10 extends javax.swing.JPanel {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setBackground(new java.awt.Color(244, 250, 251));
+        jLabel2.setFont(new java.awt.Font("Gadugi", 1, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText(" 10");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 550, 40, -1));
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 580, 40, -1));
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setBackground(new java.awt.Color(244, 250, 251));
+        jLabel3.setFont(new java.awt.Font("Gadugi", 1, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(244, 250, 251));
         jLabel3.setText(" 10");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, 40, -1));
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 580, 40, -1));
 
+        btnHabitacion215.setBackground(new java.awt.Color(244, 250, 251));
+        btnHabitacion215.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        btnHabitacion215.setForeground(new java.awt.Color(23, 34, 77));
         btnHabitacion215.setText("Ver Disponibilidad");
+        btnHabitacion215.setBorder(null);
+        btnHabitacion215.setFocusPainted(false);
         btnHabitacion215.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHabitacion215ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnHabitacion215, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 500, 160, 40));
+        jPanel1.add(btnHabitacion215, new org.netbeans.lib.awtextra.AbsoluteConstraints(745, 480, 270, 45));
 
+        btnHabitacion214.setBackground(new java.awt.Color(244, 250, 251));
+        btnHabitacion214.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        btnHabitacion214.setForeground(new java.awt.Color(23, 34, 77));
         btnHabitacion214.setText("Ver Disponibilidad");
+        btnHabitacion214.setBorder(null);
+        btnHabitacion214.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHabitacion214.setFocusPainted(false);
         btnHabitacion214.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHabitacion214ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnHabitacion214, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 320, 160, 40));
+        jPanel1.add(btnHabitacion214, new org.netbeans.lib.awtextra.AbsoluteConstraints(745, 300, 270, 45));
 
+        btnHabitacion213.setBackground(new java.awt.Color(244, 250, 251));
+        btnHabitacion213.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        btnHabitacion213.setForeground(new java.awt.Color(23, 34, 77));
         btnHabitacion213.setText("Ver Disponibilidad");
+        btnHabitacion213.setBorder(null);
+        btnHabitacion213.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHabitacion213.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnHabitacion213.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHabitacion213ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnHabitacion213, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 140, 160, 40));
+        jPanel1.add(btnHabitacion213, new org.netbeans.lib.awtextra.AbsoluteConstraints(745, 130, 270, 45));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imghabs/Habitaciones10.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imghabs_news/Nuevo_Habitaciones10.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

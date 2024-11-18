@@ -1,6 +1,7 @@
 
 package softwarereservacionhotel;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.*;
@@ -16,9 +17,17 @@ public class PantallaBtnAdmin extends javax.swing.JFrame {
     public PantallaBtnAdmin() {
         this.setContentPane(FondoAdmin); // Establecer el fondo personalizado como el contenido principal de la ventana
         initComponents(); // Inicializar componentes de la interfaz gráfica
-        this.setResizable(false); // Deshabilitar el redimensionamiento de la ventana
+        setIconImage(new ImageIcon(getClass().getResource("/img_news/Logo_Hotel.png")).getImage());
+        setTitle("Hotel Hola Mundo - Launcher");
+        this.setResizable(false);  // Línea para deshabilitar el redimensionamiento
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH); // Maximizar ventana al iniciar
+        this.setMinimumSize(new Dimension(1280, 800)); // Tamaño mínimo de la ventana
         // Actualizar la tabla de reservas después de inicializarla
         actualizarTabla();
+        // Configurar el JLabel para que la imagen se ajuste al tamaño
+        jLabelFondoGuía.setHorizontalAlignment(SwingConstants.CENTER);  // Centrado horizontal
+        jLabelFondoGuía.setVerticalAlignment(SwingConstants.CENTER);    // Centrado vertical
+        jPanel1.add(jLabelFondoGuía, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 798));
     }
 
     @SuppressWarnings("unchecked")
@@ -30,71 +39,153 @@ public class PantallaBtnAdmin extends javax.swing.JFrame {
         btnReserva = new javax.swing.JButton();
         btnNosotros = new javax.swing.JButton();
         btnAdmin = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblReservas = new javax.swing.JTable();
         btnActualizarEstado = new javax.swing.JButton();
         btnActualizarTabla = new javax.swing.JButton();
         btnEditarInfoCliente = new javax.swing.JButton();
         btnFiltrar = new javax.swing.JButton();
         txtFiltro = new javax.swing.JTextField();
         cmbFiltro = new javax.swing.JComboBox<>();
+        scrollReservas = new javax.swing.JScrollPane();
+        tblReservas = new javax.swing.JTable();
         CerrarSesion = new javax.swing.JButton();
+        jLabelFondoGuía = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnHabitaciones.setText("Habitaciones");
+        jPanel1.setMinimumSize(new java.awt.Dimension(1280, 800));
+        jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 800));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnHabitaciones.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnHabitaciones.setContentAreaFilled(false);
+        btnHabitaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHabitaciones.setFocusPainted(false);
         btnHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHabitacionesActionPerformed(evt);
             }
         });
+        jPanel1.add(btnHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 58, 190, 60));
 
-        btnReserva.setText("Reserva");
+        btnReserva.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnReserva.setContentAreaFilled(false);
+        btnReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReserva.setFocusPainted(false);
         btnReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReservaActionPerformed(evt);
             }
         });
+        jPanel1.add(btnReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 58, 130, 60));
 
-        btnNosotros.setText("Nosotros");
+        btnNosotros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnNosotros.setContentAreaFilled(false);
+        btnNosotros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNosotros.setFocusPainted(false);
         btnNosotros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNosotrosActionPerformed(evt);
             }
         });
+        jPanel1.add(btnNosotros, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 58, 150, 60));
 
-        btnAdmin.setText("Admin");
+        btnAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        btnAdmin.setContentAreaFilled(false);
+        btnAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdmin.setFocusPainted(false);
         btnAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdminActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 58, 110, 60));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setText("GESTIONAR RESERVAS:");
+        btnActualizarEstado.setBorder(null);
+        btnActualizarEstado.setBorderPainted(false);
+        btnActualizarEstado.setContentAreaFilled(false);
+        btnActualizarEstado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActualizarEstado.setFocusable(false);
+        btnActualizarEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarEstadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnActualizarEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(805, 290, 205, 75));
 
-        jLabel2.setText("_____________________________________________________________________________________________________________________________________________________________");
+        btnActualizarTabla.setBorder(null);
+        btnActualizarTabla.setBorderPainted(false);
+        btnActualizarTabla.setContentAreaFilled(false);
+        btnActualizarTabla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActualizarTabla.setFocusable(false);
+        btnActualizarTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarTablaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnActualizarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 205, 75));
 
+        btnEditarInfoCliente.setBorder(null);
+        btnEditarInfoCliente.setBorderPainted(false);
+        btnEditarInfoCliente.setContentAreaFilled(false);
+        btnEditarInfoCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditarInfoCliente.setFocusable(false);
+        btnEditarInfoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarInfoClienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEditarInfoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 280, 75));
+
+        btnFiltrar.setBorder(null);
+        btnFiltrar.setBorderPainted(false);
+        btnFiltrar.setContentAreaFilled(false);
+        btnFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFiltrar.setFocusPainted(false);
+        btnFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 205, 135, 45));
+
+        txtFiltro.setBackground(new java.awt.Color(244, 250, 251));
+        txtFiltro.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+        txtFiltro.setForeground(new java.awt.Color(7, 44, 117));
+        jPanel1.add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 215, 170, 30));
+
+        cmbFiltro.setBackground(new java.awt.Color(244, 250, 251));
+        cmbFiltro.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        cmbFiltro.setForeground(new java.awt.Color(7, 44, 117));
+        cmbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código R.", "Fecha Inicio", "Fecha Fin", "Razón Social", "Nº Habitación", "Cliente", "DNI Cliente", "ID Estado", "Estado R.", "Método Pago", "Monto", "Penalización", "Fecha Pago" }));
+        jPanel1.add(cmbFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 210, 160, 40));
+
+        scrollReservas.setBackground(new java.awt.Color(244, 250, 251));
+        scrollReservas.setForeground(new java.awt.Color(7, 44, 117));
+        scrollReservas.setFont(new java.awt.Font("Gadugi", 1, 14)); // NOI18N
+
+        tblReservas.setBackground(new java.awt.Color(244, 250, 251));
+        tblReservas.setFont(new java.awt.Font("Gadugi", 1, 12)); // NOI18N
+        tblReservas.setForeground(new java.awt.Color(7, 44, 117));
         tblReservas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código R.", "Fecha Inicio", "Fecha Fin", "Razón Social", "Nº Habitación", "Cliente", "DNI Cliente", "ID Estado", "Estado R.", "Método Pago", "Monto", "Fecha Pago"
+                "Código R.", "Fecha Inicio", "Fecha Fin", "Razón Social", "Nº Habitación", "Cliente", "DNI Cliente", "ID Estado", "Estado R.", "Método Pago", "Monto", "Penalización", "Tarjeta"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tblReservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tblReservas.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tblReservas);
+        scrollReservas.setViewportView(tblReservas);
         if (tblReservas.getColumnModel().getColumnCount() > 0) {
             tblReservas.getColumnModel().getColumn(0).setResizable(false);
             tblReservas.getColumnModel().getColumn(1).setResizable(false);
@@ -107,133 +198,36 @@ public class PantallaBtnAdmin extends javax.swing.JFrame {
             tblReservas.getColumnModel().getColumn(8).setResizable(false);
             tblReservas.getColumnModel().getColumn(9).setResizable(false);
             tblReservas.getColumnModel().getColumn(10).setResizable(false);
-            tblReservas.getColumnModel().getColumn(11).setResizable(false);
         }
 
-        btnActualizarEstado.setText("Actualizar Estado");
-        btnActualizarEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarEstadoActionPerformed(evt);
-            }
-        });
+        jPanel1.add(scrollReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 1050, 350));
 
-        btnActualizarTabla.setText("Actualizar Tabla");
-        btnActualizarTabla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarTablaActionPerformed(evt);
-            }
-        });
-
-        btnEditarInfoCliente.setText("Editar Razón Social del Cliente");
-        btnEditarInfoCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarInfoClienteActionPerformed(evt);
-            }
-        });
-
-        btnFiltrar.setText("FILTRAR");
-        btnFiltrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFiltrarActionPerformed(evt);
-            }
-        });
-
-        cmbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código R.", "Fecha Inicio", "Fecha Fin", "Razón Social", "Nº Habitación", "Cliente", "DNI Cliente", "ID Estado", "Estado R.", "Método Pago", "Monto", "Fecha Pago" }));
-
-        CerrarSesion.setText("Cerrar Sesion");
+        CerrarSesion.setBorder(null);
+        CerrarSesion.setBorderPainted(false);
+        CerrarSesion.setContentAreaFilled(false);
+        CerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CerrarSesion.setFocusPainted(false);
         CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CerrarSesionActionPerformed(evt);
             }
         });
+        jPanel1.add(CerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 97, 160, 40));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnActualizarTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146)
-                .addComponent(btnEditarInfoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148)
-                .addComponent(btnActualizarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(241, 241, 241))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(btnFiltrar)
-                .addGap(476, 476, 476))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(CerrarSesion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnNosotros, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addContainerGap(98, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNosotros, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(48, 48, 48))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(CerrarSesion)
-                        .addGap(36, 36, 36)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnFiltrar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnActualizarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditarInfoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizarTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
+        jLabelFondoGuía.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_news/Nuevo_PantallaBtnAdmin.png"))); // NOI18N
+        jPanel1.add(jLabelFondoGuía, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 798));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -435,7 +429,7 @@ public class PantallaBtnAdmin extends javax.swing.JFrame {
             model.setRowCount(0); // Limpiar tabla antes de cargar nuevos datos
 
             // Consulta SQL para obtener todas las reservas con información relevante
-            String query = "SELECT r.COD_RES, r.INI_RES, r.FIN_RES, r.RAZ_RES, r.NUM_HAB, u.NOM_USU, c.DNI_CLI, e.ID_EST, e.NOM_EST, tp.MET_PAG, tp.MON_PAG, tp.FEC_PAG " +
+            String query = "SELECT r.COD_RES, r.INI_RES, r.FIN_RES, r.RAZ_RES, r.NUM_HAB, u.NOM_USU, c.DNI_CLI, e.ID_EST, e.NOM_EST, tp.MET_PAG, tp.MON_PAG, tp.PEN_PAG, tp.TAR_PAG " +
                            "FROM RESERVA r " +
                            "JOIN CLIENTE c ON r.DNI_CLI = c.DNI_CLI " +
                            "JOIN USUARIO u ON c.ID_USU = u.ID_USU " +
@@ -448,7 +442,7 @@ public class PantallaBtnAdmin extends javax.swing.JFrame {
 
             while (rs.next()) {
                 // Obtener datos de cada reserva y agregarlos a la tabla
-                Object[] row = new Object[12];
+                Object[] row = new Object[13];
                 row[0] = rs.getString("COD_RES");
                 row[1] = rs.getDate("INI_RES");
                 row[2] = rs.getDate("FIN_RES");
@@ -459,8 +453,9 @@ public class PantallaBtnAdmin extends javax.swing.JFrame {
                 row[7] = rs.getString("ID_EST");
                 row[8] = rs.getString("NOM_EST");
                 row[9] = rs.getString("MET_PAG");
-                row[10] = rs.getInt("MON_PAG");
-                row[11] = rs.getDate("FEC_PAG");
+                row[10] = rs.getBigDecimal("MON_PAG");
+                row[11] = rs.getBigDecimal("PEN_PAG"); // Campo de Penalización
+                row[12] = rs.getString("TAR_PAG"); // Campo de Tarjeta
 
                 model.addRow(row); // Agregar la fila al modelo de la tabla
             }
@@ -509,63 +504,58 @@ public class PantallaBtnAdmin extends javax.swing.JFrame {
             case "Monto":
                 columna = "tp.MON_PAG"; // Relacionado con la tabla tipo_pago
                 break;
-            case "Fecha Pago":
-                columna = "tp.FEC_PAG"; // Relacionado con la tabla tipo_pago
+            case "Penalización":
+                columna = "tp.PEN_PAG"; // Relacionado con la tabla tipo_pago
+                break;
+            case "Tarjeta":
+                columna = "tp.TAR_PAG"; // Relacionado con la tabla tipo_pago
                 break;
             default:
                 columna = "";
                 break;
         }
 
-        // Realizar la consulta de filtrado
-        String query = "SELECT r.COD_RES, r.INI_RES, r.FIN_RES, r.RAZ_RES, r.NUM_HAB, r.DNI_CLI, r.ID_EST, " +
-                       "e.NOM_EST, tp.MET_PAG, tp.MON_PAG, tp.FEC_PAG, u.NOM_USU " +
-                       "FROM RESERVA r " +
-                       "LEFT JOIN ESTADO e ON r.ID_EST = e.ID_EST " +
-                       "LEFT JOIN tipo_pagoCONreserva tpr ON r.COD_RES = tpr.COD_RES " +
-                       "LEFT JOIN TIPO_PAGO tp ON tpr.ID_TPA = tp.ID_TPA " +
-                       "LEFT JOIN CLIENTE c ON r.DNI_CLI = c.DNI_CLI " +
-                       "LEFT JOIN USUARIO u ON c.ID_USU = u.ID_USU " +
-                       "WHERE " + columna + " LIKE ?";
+        if (!columna.isEmpty()) {
+            try (Connection con = Conexion.getConexion()) {
+                DefaultTableModel model = (DefaultTableModel) tblReservas.getModel();
+                model.setRowCount(0); // Limpiar tabla antes de cargar nuevos datos
 
-        try (Connection con = Conexion.getConexion();
-             PreparedStatement pst = con.prepareStatement(query)) {
+                // Consulta SQL para filtrar reservas según el campo y el filtro ingresado
+                String query = "SELECT r.COD_RES, r.INI_RES, r.FIN_RES, r.RAZ_RES, r.NUM_HAB, u.NOM_USU, c.DNI_CLI, e.ID_EST, e.NOM_EST, tp.MET_PAG, tp.MON_PAG, tp.PEN_PAG, tp.TAR_PAG " +
+                               "FROM RESERVA r " +
+                               "JOIN CLIENTE c ON r.DNI_CLI = c.DNI_CLI " +
+                               "JOIN USUARIO u ON c.ID_USU = u.ID_USU " +
+                               "JOIN ESTADO e ON r.ID_EST = e.ID_EST " +
+                               "JOIN tipo_pagoCONreserva tpr ON r.COD_RES = tpr.COD_RES " +
+                               "JOIN TIPO_PAGO tp ON tpr.ID_TPA = tp.ID_TPA " +
+                               "WHERE " + columna + " LIKE ?";
 
-            pst.setString(1, "%" + filtro + "%");
-            ResultSet rs = pst.executeQuery();
+                PreparedStatement pst = con.prepareStatement(query);
+                pst.setString(1, "%" + filtro + "%");
+                ResultSet rs = pst.executeQuery();
 
-            // Limpiar la tabla antes de cargar los datos filtrados
-            DefaultTableModel model = (DefaultTableModel) tblReservas.getModel();
-            model.setRowCount(0);
+                while (rs.next()) {
+                    // Obtener datos de cada reserva filtrada y agregarlos a la tabla
+                    Object[] row = new Object[13];
+                    row[0] = rs.getString("COD_RES");
+                    row[1] = rs.getDate("INI_RES");
+                    row[2] = rs.getDate("FIN_RES");
+                    row[3] = rs.getString("RAZ_RES");
+                    row[4] = rs.getString("NUM_HAB");
+                    row[5] = rs.getString("NOM_USU");
+                    row[6] = rs.getInt("DNI_CLI");
+                    row[7] = rs.getString("ID_EST");
+                    row[8] = rs.getString("NOM_EST");
+                    row[9] = rs.getString("MET_PAG");
+                    row[10] = rs.getBigDecimal("MON_PAG");
+                    row[11] = rs.getBigDecimal("PEN_PAG");
+                    row[12] = rs.getString("TAR_PAG");
 
-            // Cargar los datos filtrados en la tabla
-            while (rs.next()) {
-                model.addRow(new Object[]{
-                    rs.getString("COD_RES"),
-                    rs.getDate("INI_RES"),
-                    rs.getDate("FIN_RES"),
-                    rs.getString("RAZ_RES"),
-                    rs.getString("NUM_HAB"),
-                    rs.getString("NOM_USU"),
-                    rs.getString("DNI_CLI"),
-                    rs.getString("ID_EST"),
-                    rs.getString("NOM_EST"),
-                    rs.getString("MET_PAG"),
-                    rs.getInt("MON_PAG"),
-                    rs.getDate("FEC_PAG")
-                });
+                    model.addRow(row); // Agregar la fila al modelo de la tabla
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-
-            // Mostrar mensaje si no se encontró nada
-            if (model.getRowCount() == 0) {
-                JOptionPane.showMessageDialog(this, "No se encontraron resultados.");
-            }
-
-            // Limpiar el campo de texto después de filtrar
-            txtFiltro.setText("");
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Error al filtrar las reservas: " + ex.getMessage());
         }
     }
 
@@ -612,33 +602,22 @@ public class PantallaBtnAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnNosotros;
     private javax.swing.JButton btnReserva;
     private javax.swing.JComboBox<String> cmbFiltro;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelFondoGuía;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane scrollReservas;
     private javax.swing.JTable tblReservas;
     private javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
     
     class FondoAdmin extends JPanel {
-    
         private Image imagen;
-        
+
         @Override
-        public void paint(Graphics g){
-            // Cargar la imagen desde el recurso
-            imagen = new ImageIcon(getClass().getResource("/img/PantallaBtnAdmin.png")).getImage();
-        
-            // Dibujar la imagen en el panel
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            imagen = new ImageIcon(getClass().getResource("/img_news/Nuevo_Fondo2.png")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-            
-            // Hacer el panel transparente para mostrar la imagen de fondo
-            setOpaque(false);
-            
-            super.paint(g); // Llamar al método paint de JPanel para asegurar que se pinten los componentes hijos
-            
         }
-    
     }
 
 }

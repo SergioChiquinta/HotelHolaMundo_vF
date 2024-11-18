@@ -134,7 +134,9 @@ public class Login extends JFrame {
         btnLogin.setText("Iniciar Sesión");
         btnLogin.setToolTipText("");
         btnLogin.setBorder(null);
+        btnLogin.setContentAreaFilled(false);
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.setFocusPainted(false);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -168,7 +170,9 @@ public class Login extends JFrame {
         btnRegistro.setForeground(new java.awt.Color(23, 34, 77));
         btnRegistro.setText("Registrese aquí");
         btnRegistro.setBorder(null);
+        btnRegistro.setContentAreaFilled(false);
         btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistro.setFocusPainted(false);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistroActionPerformed(evt);

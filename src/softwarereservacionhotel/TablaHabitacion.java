@@ -1,6 +1,7 @@
 
 package softwarereservacionhotel;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Connection;
@@ -11,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -36,6 +38,10 @@ public class TablaHabitacion extends javax.swing.JFrame {
         setHabitacion(numHab);  // Establecer la habitación y cargar las reservas asociadas
         this.setResizable(false);  // Deshabilitar redimensionamiento de la ventana
         txtHabitacion.setEnabled(false);  // Deshabilitar la edición del campo de número de habitación
+        setIconImage(new ImageIcon(getClass().getResource("/img_news/Logo_Hotel.png")).getImage());
+        setTitle("Hotel Hola Mundo - Tabla Habitación " + numHab);
+        this.setResizable(true);  // Línea para deshabilitar el redimensionamiento
+        this.setMinimumSize(new Dimension(620, 700)); // Tamaño mínimo de la ventana
     }
 
     @SuppressWarnings("unchecked")
@@ -43,7 +49,6 @@ public class TablaHabitacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new FondoTablaHabitacion();
-        lblTitulo = new javax.swing.JLabel();
         txtHabitacion = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -56,12 +61,18 @@ public class TablaHabitacion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblTitulo.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblTitulo.setText("Tabla de Reservas - Habitación ");
+        jPanel1.setPreferredSize(new java.awt.Dimension(620, 700));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtHabitacion.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtHabitacion.setBackground(new java.awt.Color(244, 250, 251));
+        txtHabitacion.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
         txtHabitacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtHabitacion.setBorder(null);
+        jPanel1.add(txtHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 36, 90, 45));
 
+        jTable1.setBackground(new java.awt.Color(244, 250, 251));
+        jTable1.setFont(new java.awt.Font("Gadugi", 1, 10)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(23, 34, 77));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -78,6 +89,10 @@ public class TablaHabitacion extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTable1.setGridColor(new java.awt.Color(244, 250, 251));
+        jTable1.setSelectionBackground(new java.awt.Color(23, 34, 77));
+        jTable1.setSelectionForeground(new java.awt.Color(244, 250, 251));
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
@@ -88,80 +103,64 @@ public class TablaHabitacion extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(4).setResizable(false);
         }
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 176, 590, 510));
+
+        btnFiltrarEntreFechas.setBackground(new java.awt.Color(244, 250, 251));
+        btnFiltrarEntreFechas.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        btnFiltrarEntreFechas.setForeground(new java.awt.Color(23, 34, 77));
         btnFiltrarEntreFechas.setText("Filtrar");
+        btnFiltrarEntreFechas.setBorder(null);
+        btnFiltrarEntreFechas.setBorderPainted(false);
         btnFiltrarEntreFechas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFiltrarEntreFechasActionPerformed(evt);
             }
         });
+        jPanel1.add(btnFiltrarEntreFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 116, 87, 39));
 
+        txtFechaInicio.setBackground(new java.awt.Color(244, 250, 251));
+        txtFechaInicio.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        txtFechaInicio.setForeground(new java.awt.Color(23, 34, 77));
+        txtFechaInicio.setBorder(null);
+        jPanel1.add(txtFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 107, 155, 57));
+
+        lblFiltrarEntreFechas.setFont(new java.awt.Font("Gadugi", 1, 12)); // NOI18N
+        lblFiltrarEntreFechas.setForeground(new java.awt.Color(23, 34, 77));
         lblFiltrarEntreFechas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFiltrarEntreFechas.setText("a");
+        jPanel1.add(lblFiltrarEntreFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 116, -1, 39));
 
-        lblFiltrarEntreFechas1.setText("FILTRAR ENTRE FECHAS:");
+        txtFechaFin.setBackground(new java.awt.Color(244, 250, 251));
+        txtFechaFin.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        txtFechaFin.setForeground(new java.awt.Color(23, 34, 77));
+        txtFechaFin.setBorder(null);
+        jPanel1.add(txtFechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 107, 155, 57));
 
+        lblFiltrarEntreFechas1.setFont(new java.awt.Font("Gadugi", 1, 12)); // NOI18N
+        lblFiltrarEntreFechas1.setForeground(new java.awt.Color(23, 34, 77));
+        lblFiltrarEntreFechas1.setText("FILTRAR ENTRE FECHAS :");
+        jPanel1.add(lblFiltrarEntreFechas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 116, -1, 39));
+
+        btnActualizarTabla.setBackground(new java.awt.Color(244, 250, 251));
+        btnActualizarTabla.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        btnActualizarTabla.setForeground(new java.awt.Color(23, 34, 77));
         btnActualizarTabla.setText("Actualizar");
+        btnActualizarTabla.setBorder(null);
+        btnActualizarTabla.setBorderPainted(false);
+        btnActualizarTabla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActualizarTabla.setFocusPainted(false);
         btnActualizarTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarTablaActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblTitulo)
-                        .addGap(4, 4, 4)
-                        .addComponent(txtHabitacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnActualizarTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblFiltrarEntreFechas1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblFiltrarEntreFechas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnFiltrarEntreFechas, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(12, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizarTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFiltrarEntreFechas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFiltrarEntreFechas1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFiltrarEntreFechas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel1.add(btnActualizarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 36, 101, 45));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,30 +337,20 @@ public class TablaHabitacion extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblFiltrarEntreFechas;
     private javax.swing.JLabel lblFiltrarEntreFechas1;
-    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtFechaFin;
     private javax.swing.JTextField txtFechaInicio;
     private javax.swing.JTextField txtHabitacion;
     // End of variables declaration//GEN-END:variables
 
-class FondoTablaHabitacion extends JPanel {
+    class FondoTablaHabitacion extends JPanel {
         private Image imagen;
-        
+
         @Override
-        public void paint(Graphics g){
-            // Cargar la imagen desde el recurso
-            imagen = new ImageIcon(getClass().getResource("/img/PantallaTablaHabitacion.png")).getImage();
-        
-            // Dibujar la imagen en el panel
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            imagen = new ImageIcon(getClass().getResource("/img_news/Nuevo_FondoPantallaTablaHabitacion.png")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-            
-            // Hacer el panel transparente para mostrar la imagen de fondo
-            setOpaque(false);
-            
-            super.paint(g); // Llamar al método paint de JPanel para asegurar que se pinten los componentes hijos
-            
         }
-    
     }
 
 }
