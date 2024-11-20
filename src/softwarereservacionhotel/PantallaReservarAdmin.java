@@ -365,7 +365,7 @@ public class PantallaReservarAdmin extends javax.swing.JFrame {
         txtPenalizacion.setBorder(null);
         jPanel1.add(txtPenalizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, 210, 45));
 
-        jLabelFondoGuía.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_news/Nuevo_PantallaReservarCliente.png"))); // NOI18N
+        jLabelFondoGuía.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_news/Nuevo_PantallaReservarAdmin.png"))); // NOI18N
         jPanel1.add(jLabelFondoGuía, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 800));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

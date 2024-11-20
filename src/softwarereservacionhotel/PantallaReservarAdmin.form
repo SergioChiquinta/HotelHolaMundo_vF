@@ -559,7 +559,7 @@
         <Component class="javax.swing.JLabel" name="jLabelFondoGu&#xed;a">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img_news/Nuevo_PantallaReservarCliente.png"/>
+              <Image iconType="3" name="/img_news/Nuevo_PantallaReservarAdmin.png"/>
             </Property>
           </Properties>
           <Constraints>
